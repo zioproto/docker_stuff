@@ -11,5 +11,5 @@ fi
 docker-machine create --driver virtualbox --virtualbox-cpu-count $DOCKER_NUM_CPUS --virtualbox-hostonly-cidr $DOCKER_NET_CIDR --virtualbox-memory $DOCKER_RAM_SIZE $DOCKER_VM_NAME
 docker-machine stop $DOCKER_VM_NAME
 # nic type is choosen such that nic3 becomes eth2; docker machine has eth1 hardcoded as hostonlynet which it communicates with.
-VBoxManage modifyvm $DOCKER_VM_NAME --nic3 bridged --bridgeadapter3 $DOCKER_BRIDGE_INTERFACE --nictype3 82545EM
+VBoxManage modifyvm $DOCKER_VM_NAME --nic3 bridged --bridgeadapter3 "$DOCKER_BRIDGE_INTERFACE" --nictype3 82545EM
 docker-machine start $DOCKER_VM_NAME
