@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+BASEDIR=`dirname $0`
+if [ -e "$BASEDIR/../setup" ]; then
+   . "$BASEDIR/../setup"
+else
+   . "$BASEDIR/../setup.default"
+fi
+SCRIPTNAME=`basename $0`
+
+export USAGE="Usage:
+$SCRIPTNAME <server_short_name>
+      e.g : $SCRIPTNAME zhdk0078
+"
+
+if [ $# -eq 0 ]; then
+    printf '%s\n' "$USAGE"
+    exit
+fi
+
+SERVER_NAME=$1
+SUBDOMAIN=`echo $SERVER_NAME | sed -E 's/[0-9]{4}$//'`
+DOMAIN="cloud.switch.ch"
+
+
+eval "$(docker-machine env $DOCKER_VM_NAME)"
+/opt/X11/bin/xhost +$(docker-machine ip $DOCKER_VM_NAME)
+
+docker run --rm --net=host -e DISPLAY=192.168.99.1:0.0 schnidrig/firefox4bmc "http://$SERVER_NAME-admin.$SUBDOMAIN.$DOMAIN"

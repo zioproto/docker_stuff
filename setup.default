@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+DOCKER_NUM_CPUS="2"
+DOCKER_RAM_SIZE="4096"
+DOCKER_VM_NAME="default"
+DOCKER_NET_CIDR="192.168.99.1/24"
+DOCKER_NET_HOST_IP="192.168.99.1"
+
+# display possible values for DOCKER_BRIDGE_INTERFACE with `VBoxManage list bridgedifs | egrep "^Name:"
+DOCKER_BRIDGE_INTERFACE="en0: Wi-Fi (AirPort)"
+#DOCKER_BRIDGE_INTERFACE="en4: Thunderbolt Ethernet"
+
