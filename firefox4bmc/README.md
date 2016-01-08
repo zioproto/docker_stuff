@@ -14,11 +14,12 @@ run the image
     docker run --name firefox4bmc --net=host -e DISPLAY=192.168.99.1:0.0 firefox4bmc
     
 -> Menu: "Edit" -> "Preferences" -> "Content" -> uncheck "Block pop-up windows"
+
 -> Menu: "Edit" -> "Preferences" -> "General" -> set home page accoring to your preferences
 
     docker commit firefox4bmc
 
--> this return a hash -> save that 'image-hash'
+-> this returns a hash: insert that 'image-hash' in the command below
 
     docker tag -f <image-hash> firefox4bmc
     docker rm firefox4bmc
@@ -30,7 +31,7 @@ Make sure XQuartz is running.
 
 Make sure the docker VM is running. If not start it with:
 
-    docker-machine start <<docker_vm_name>>
+    docker-machine start <docker_vm_name>
 
 Allow connections from the docker VM to XQuartz:
 

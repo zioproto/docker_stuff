@@ -17,14 +17,14 @@ Of course, you may choose to install the software manually instead.
 ## Install Docker Related Software
 
 If you have virtualbox already installed and you installed it by some other means than homebrew,
-you may prefere to install docker toolbox manually as well. You can get it from https://www.docker.com/docker-toolbox.
+you may prefere to install docker toolbox manually. You can get it from https://www.docker.com/docker-toolbox.
 
-If you don't have virtualbox or don't mind it being reinstalled, then install DockerToolbox with
+If you don't have Virtualbox installed or don't mind it being reinstalled, then you may install DockerToolbox together with Virtualbox with this command:
 
     brew install Caskroom/cask/dockertoolbox
     
 
-GUI docker images require an XServer:
+GUI docker images require an XServer: install it with:
 
     brew install Caskroom/cask/xquartz
 
@@ -46,7 +46,7 @@ If you happen to have a docker VM (named default) already, either specify a diff
     docker-machine stop default
     docker-machine rm default
     
-Run the following script which will create the docker virtualbox VM. The standard VM build by docker-machine is not good enough, since at SWITCH we need IPv6 support from the docker VM.
+Run the following script which will create the docker virtualbox VM. The standard VM build by docker-machine is not good enough, since at SWITCH we need IPv6 support within the docker VM.
 
     ./create_docker_vm
 
