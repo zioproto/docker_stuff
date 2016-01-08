@@ -8,6 +8,21 @@ This is not needed unless you wish to change the image. Instead of building the 
     cd build
     eval "$(docker-machine env <docker_vm_name>)"
     docker build --tag=firefox4bmc .
+    
+run the image
+
+    docker run --name firefox4bmc --net=host -e DISPLAY=192.168.99.1:0.0 firefox4bmc
+    
+-> Menu: "Edit" -> "Preferences" -> "Content" -> uncheck "Block pop-up windows"
+-> Menu: "Edit" -> "Preferences" -> "General" -> set home page accoring to your preferences
+
+    docker commit firefox4bmc
+
+-> this return a hash -> save that 'image-hash'
+
+    docker tag -f <image-hash> firefox4bmc
+    docker rm firefox4bmc
+    
 
 ## run browser
 
