@@ -21,12 +21,12 @@ you may prefere to install docker toolbox manually. You can get it from https://
 
 If you don't have Virtualbox installed or don't mind it being reinstalled, then you may install DockerToolbox together with Virtualbox with this command:
 
-    brew install Caskroom/cask/dockertoolbox
+    brew cask install dockertoolbox
     
 
 GUI docker images require an XServer: install it with:
 
-    brew install Caskroom/cask/xquartz
+    brew cask install xquartz
 
 Docker running in a VM cannot access the XQuartz socket. Therefore, XQuartz needs to be configured to allow for network clients to connect:
 
