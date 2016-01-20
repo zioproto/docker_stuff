@@ -27,7 +27,7 @@ e.g.
 
     ./firefox4bmc zhdk0087
 
-### start browser manually (without the script)
+### Start browser manually (without the script)
 
 If the defaults don't fit your needs you can start the brower manually:
 
