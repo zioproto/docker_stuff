@@ -54,3 +54,15 @@ Run the following script which will create the docker virtualbox VM. The standar
 ## Docker Images in this repo
 
   * firefox4bmc: image containing a firefox browser which is able to connect to BMC Server consoles.
+  * oscli: openstack cli
+
+## Hints & Tricks
+
+Instead of having to type `eval "$(docker-machine env <docker_vm_name>)"` in every shell. You may want to define the following shell function:
+
+	function docker() {
+		if [ -z "$DOCKER_MACHINE_NAME" ]; then
+			eval "$(docker-machine env default)";
+		fi
+		/usr/local/bin/docker "$@";
+	}
