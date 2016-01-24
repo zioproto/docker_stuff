@@ -10,3 +10,11 @@ DOCKER_NET_HOST_IP="192.168.99.1"
 DOCKER_BRIDGE_INTERFACE="en0: Wi-Fi (AirPort)"
 #DOCKER_BRIDGE_INTERFACE="en4: Thunderbolt Ethernet"
 
+# allow for http only registries
+#DOCKER_OPTS="--engine-insecure-registry <server_name_or_ip>:5000"
+
+# dns proxy
+#DOCKER_OPTS="$DOCKER_OPTS --virtualbox-dns-proxy"
+# host dns resolver: if dnsmasq is installed on host
+#DOCKER_OPTS="$DOCKER_OPTS --virtualbox-host-dns-resolver"
+
