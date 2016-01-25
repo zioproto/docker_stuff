@@ -8,7 +8,7 @@ Openstack CLI requires you to set a few environment variables with the authentic
 You should create a file for each account/tenant/region you have access to and then put them all in one directory. 
 Let's assume that dir is `~/rc`
 
-Example rc file:
+Example `~/rc/default-openrc.sh` file:
 
     export OS_AUTH_URL=https://keystone.cloud.switch.ch:5000/v2.0
     export OS_TENANT_NAME="SWITCH"
@@ -47,6 +47,9 @@ This is not needed unless you wish to change the image.
 
     cd build
     docker build -f Dockerfile.juno -t oscli:juno .
-    docker tag -f oscli:juno schnidrig/oscli:juno
+
+now you can use the image. If you have a dockerhub account you can push it with: (e.g. to account "schnidrig")
+    
+    docker tag -f oscli:juno schnidrig/oscli:juno .
     docker push schnidrig/oscli:juno
     
