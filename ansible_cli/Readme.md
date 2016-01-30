@@ -6,7 +6,7 @@ This image allows for seemless ansible integration into your mac os x shell.
 
 define following alias in your shell:
 
-	alias ansible-playbook="docker run -ti --net=host --rm schnidrig/ansible_cli:1.9 ansible-playbook"
+	alias ansible-playbook="docker run -ti --net=host -v ~/.ssh:/home/docker/.ssh -v `pwd`:/workdir --rm schnidrig/ansible_cli:1.9 ansible-playbook"
 	
 then you can call a playbook like this:
 
