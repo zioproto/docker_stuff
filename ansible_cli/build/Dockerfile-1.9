@@ -1,0 +1,26 @@
+FROM schnidrig/ansible:14.04-1.9
+
+MAINTAINER Christian Schnidrig
+
+ENV uid 1000
+ENV gid 50
+ENV USER docker
+ENV WORKDIR /workdir
+ENV HOME /home/$USER
+
+RUN adduser --uid=${uid} --gid=${gid} \
+    --home=$HOME --shell=/bin/bash -disabled-password --gecos "" \
+    $USER
+RUN echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$USER && \
+    chmod 0440 /etc/sudoers.d/$USER
+
+
+RUN mkdir -p $WORKDIR
+
+user $USER
+WORKDIR $WORKDIR
+
+VOLUME $WORKDIR
+
+#ENTRYPOINT [ "ansible-playbook" ]
+
