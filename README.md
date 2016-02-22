@@ -30,11 +30,13 @@ GUI docker images require an XServer: install it with:
 
 Docker running in a VM cannot access the XQuartz socket. Therefore, XQuartz needs to be configured to allow for network clients to connect:
 
--> run XQuartz
+	defaults write org.macosforge.xquartz.X11 nolisten_tcp 0
 
--> Menu: "XQuartz" -> "Preferences..." -> "Security" tab -> check "Allow connections from network clients"
+disable the useless xterm at xquartz startup
 
--> restart XQuartz
+	defaults write org.macosforge.xquartz.X11 app_to_run /usr/bin/true 
+
+-> start XQuartz
 
 
 ## Setup Docker VM with docker-machine
