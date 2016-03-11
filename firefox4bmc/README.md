@@ -73,7 +73,7 @@ run the image
 
 -> this returns a hash: insert that 'image-hash' in the command below
 
-    docker tag -f <image-hash> firefox4bmc
+    docker tag <image-hash> firefox4bmc
     docker rm firefox4bmc
     
 

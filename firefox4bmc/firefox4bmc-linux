@@ -22,7 +22,16 @@ SERVER_NAME=$1
 SUBDOMAIN=`echo $SERVER_NAME | sed -E 's/[0-9]{4}$//'`
 DOMAIN="cloud.switch.ch"
 
-xhost +local:
-docker run --rm --net=host -e DISPLAY -v /tmp/.X10-unix:/tmp/.X11-unix schnidrig/firefox4bmc "http://$SERVER_NAME-admin.$SUBDOMAIN.$DOMAIN"
-#docker run -d  --rm --net=host -e DISPLAY -v /tmp/.X10-unix:/tmp/.X11-unix -v ~/.Xauthority:/home/firefox/.Xauthority schnidrig/firefox4bmc "http://$SERVER_NAME-admin.$SUBDOMAIN.$DOMAIN"
+#xhost +local:
+
+docker \
+    run \
+    --rm \
+    --net=host \
+    -e DISPLAY \
+    -e PUID=`id -u` \
+    -e PGID=`id -g` \
+    -v /tmp/.X10-unix:/tmp/.X11-unix \
+    -v ~/.Xauthority:/home/firefox/.Xauthority \
+    schnidrig/firefox4bmc "http://$SERVER_NAME-admin.$SUBDOMAIN.$DOMAIN"
 

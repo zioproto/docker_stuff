@@ -24,7 +24,12 @@ DOMAIN="cloud.switch.ch"
 
 
 eval "$(docker-machine env $DOCKER_VM_NAME)"
-/opt/X11/bin/xhost +$(docker-machine ip $DOCKER_VM_NAME)
+/usr/bin/xhost +$(docker-machine ip $DOCKER_VM_NAME)
 
-docker run --rm --net=host -e DISPLAY=192.168.99.1:0.0 schnidrig/firefox4bmc "http://$SERVER_NAME-admin.$SUBDOMAIN.$DOMAIN"
+docker \
+    run \
+    --rm \
+    --net=host \
+    -e DISPLAY=192.168.99.1:0.0 \
+    schnidrig/firefox4bmc "http://$SERVER_NAME-admin.$SUBDOMAIN.$DOMAIN"
 
