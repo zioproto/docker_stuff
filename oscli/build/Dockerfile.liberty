@@ -12,29 +12,26 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN sudo add-apt-repository cloud-archive:kilo 
+RUN sudo add-apt-repository cloud-archive:liberty
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    python-openstackclient \
-    python-ceilometerclient \
-    python-heatclient \
-    python-troveclient \
-    python-designateclient \
-    python-manilaclient \
-    python-glanceclient \
-    python-keystoneclient \
-    python-neutronclient \
-    python-novaclient \
-    python-swiftclient \
-    python-ironicclient \
-    python-quantumclient \
-    python-cinderclient \
-    python-saharaclient \
-    python-barbicanclient \
+      python-openstackclient \
+      python-ceilometerclient \
+      python-heatclient \
+      python-troveclient \
+      python-designateclient \
+      python-manilaclient \
+      python-ironicclient \
+      python-saharaclient \
+      python-barbicanclient \
+      python-zaqarclient \
+      python-muranoclient \
+      python-mistralclient \
+      python-magnumclient \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    
+
 # docker: 1000; staff: 50
 ENV uid 1000
 ENV gid 50

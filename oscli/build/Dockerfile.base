@@ -1,0 +1,16 @@
+FROM ubuntu:14.04
+
+MAINTAINER Christian Schnidrig
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        python-dev \
+        python-pip \
+        software-properties-common \
+        ubuntu-cloud-keyring \
+        sudo && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+CMD ["bash"]
+
