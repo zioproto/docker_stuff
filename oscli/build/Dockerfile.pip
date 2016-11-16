@@ -39,9 +39,7 @@ ENV HOME /home/docker
 WORKDIR /home/docker
 
 VOLUME $ENV_HOME/rc
-COPY .bashrc $ENV_HOME/
-COPY .bash_aliases $ENV_HOME/
-COPY .prompt $ENV_HOME/
 
+COPY .profile .bash* .os_prompt $HOME/
+RUN chown ${uid}:${gid} -R $HOME
 ENTRYPOINT ["/bin/bash", "-li"]
-
