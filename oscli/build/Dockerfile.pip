@@ -14,6 +14,7 @@ RUN apt-get update && \
 
 RUN pip install --upgrade cryptography
 RUN pip install --upgrade pyopenssl
+RUN pip install --upgrade pytz
 RUN pip install python-openstackclient
 RUN pip install python-barbicanclient \
     python-ceilometerclient \
