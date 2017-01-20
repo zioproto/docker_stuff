@@ -40,20 +40,23 @@ The following tags are available:
 
 - juno: ubuntu 14.04 with "cloud-archive:juno" 
 - kilo: ubuntu 14.04 with "cloud-archive:kilo" 
+- liberty: ubuntu 14.04 with "cloud-archive:liberty" 
+- mitaka: ubuntu 16.04 with "cloud-archive:mitaka" 
+- ocata: ubuntu 16.04 with "cloud-archive:ocata" 
 
 # Build Image
 
 This is not needed unless you wish to change the image. 
 
     cd build
-    docker build -f Dockerfile.juno -t oscli:juno .
+    docker build -f Dockerfile.ocata -t oscli:ocata .
 
 now you can use the image. 
 
 If you have a dockerhub account you can push it with: (e.g. to account "schnidrig")
     
-    docker tag -f oscli:juno schnidrig/oscli:juno .
-    docker push schnidrig/oscli:juno
+    docker tag oscli:ocata schnidrig/oscli:ocata
+    docker push schnidrig/oscli:ocata
     
 # Usage example
 

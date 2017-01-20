@@ -9,11 +9,13 @@ RUN apt-get update && \
         software-properties-common \
         ubuntu-cloud-keyring \
         git \
+        vim \
+        less \
         sudo && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#RUN add-apt-repository cloud-archive:mitaka
+RUN add-apt-repository cloud-archive:ocata
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -30,6 +32,11 @@ RUN apt-get update && \
       python-muranoclient \
       python-mistralclient \
       python-magnumclient \
+      python-senlinclient \
+      python-aodhclient \
+      python-gnocchiclient \
+      python-monascaclient \
+      python-tackerclient \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
