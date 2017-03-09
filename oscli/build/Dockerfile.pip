@@ -1,16 +1,24 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER Christian Schnidrig
 
 RUN apt-get update && \
     apt-get install -y \
+        vim-nox \
+        git \
+        less \
         python-dev \
         python-pip \
-        sudo && \
+        sudo \
+        libffi-dev \
+        libssl-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-
+RUN pip install --upgrade pip
+RUN pip install --upgrade cryptography
+RUN pip install --upgrade pyopenssl
+RUN pip install --upgrade pytz
 RUN pip install python-openstackclient
 RUN pip install python-barbicanclient \
     python-ceilometerclient \
@@ -20,7 +28,11 @@ RUN pip install python-barbicanclient \
     python-designateclient \
     python-magnumclient \
     python-manilaclient \
-    python-monascaclient 
+    python-monascaclient \
+    python-neutronclient \
+    python-novaclient \
+    python-cinderclient \
+    python-glanceclient
 
 # docker: 1000; staff: 50
 RUN export uid=1000 gid=50 && \
@@ -37,9 +49,7 @@ ENV HOME /home/docker
 WORKDIR /home/docker
 
 VOLUME $ENV_HOME/rc
-COPY .bashrc $ENV_HOME/
-COPY .bash_aliases $ENV_HOME/
-COPY .prompt $ENV_HOME/
 
+COPY .profile .bash* .os_prompt $HOME/
+RUN chown ${uid}:${gid} -R $HOME
 ENTRYPOINT ["/bin/bash", "-li"]
-
