@@ -4,6 +4,9 @@ MAINTAINER Christian Schnidrig
 
 RUN apt-get update && \
     apt-get install -y \
+        vim-nox \
+        git \
+        less \
         python-dev \
         python-pip \
         sudo \
