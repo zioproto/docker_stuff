@@ -32,7 +32,8 @@ RUN pip install python-barbicanclient \
     python-neutronclient \
     python-novaclient \
     python-cinderclient \
-    python-glanceclient
+    python-glanceclient \
+    networking-l2gw
 
 # docker: 1000; staff: 50
 RUN export uid=1000 gid=50 && \
