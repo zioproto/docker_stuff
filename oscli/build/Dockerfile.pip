@@ -57,4 +57,4 @@ VOLUME $ENV_HOME/rc
 
 COPY .profile .bash* .os_prompt $HOME/
 RUN chown ${uid}:${gid} -R $HOME
-ENTRYPOINT ["/bin/bash", "-li"]
+ENTRYPOINT ["/usr/local/bin/openstack"]
