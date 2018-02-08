@@ -4,6 +4,7 @@ MAINTAINER Christian Schnidrig
 
 RUN apt-get update && \
     apt-get install -y \
+        curl \
         vim-nox \
         git \
         less \
